@@ -35,13 +35,13 @@
                     'loading gapi-chrome-apps.js');
 
   // If not running in a chrome packaged app, load web gapi:
-  // if (!(chrome && chrome.app && chrome.app.runtime)) {
-  //   // Load web gapi.
-  //   var script = document.createElement('script');
-  //   script.src = 'https://apis.google.com/js/client.js?onload=gapiIsLoaded';
-  //   document.documentElement.appendChild(script);
-  //   return;
-  // }
+  if (!(chrome && chrome.app && chrome.app.runtime)) {
+    // Load web gapi.
+    var script = document.createElement('script');
+    script.src = 'https://apis.google.com/js/client.js?onload=gapiIsLoaded';
+    document.documentElement.appendChild(script);
+    return;
+  }
 
   window.gapi = {};
   window.gapi.auth = {};
@@ -62,14 +62,17 @@
     console.assert(!params.response_type || params.response_type == 'token');
 
     var callbackWrapper = function (getAuthTokenCallbackParam) {
-      console.log('callbackparam='+getAuthTokenCallbackParam);
       access_token = getAuthTokenCallbackParam;
+	console.log(chrome.runtime.lastError);
       // TODO: error conditions?
       if (typeof access_token !== 'undefined')
         callback({ access_token: access_token});
       else
         callback();
     }
+
+    chrome.identity.getAuthToken(details, callbackWrapper);
+      console.log('authToken called.');
   };
 
 
@@ -108,6 +111,7 @@
 
     xhr.onerror = function () {
       // TODO, error handling.
+	console.log('error!!!');
       debugger;
     };
 
