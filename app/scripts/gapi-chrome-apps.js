@@ -30,18 +30,6 @@
 (function () {
   if (typeof gapi !== 'undefined')
     throw new Error('gapi already defined.');
-  if (typeof gapiIsLoaded !== 'function')
-    throw new Error('gapiIsLoaded callback function must be defined prior to ' +
-                    'loading gapi-chrome-apps.js');
-
-  // If not running in a chrome packaged app, load web gapi:
-  if (!(chrome && chrome.app && chrome.app.runtime)) {
-    // Load web gapi.
-    var script = document.createElement('script');
-    script.src = 'https://apis.google.com/js/client.js?onload=gapiIsLoaded';
-    document.documentElement.appendChild(script);
-    return;
-  }
 
   window.gapi = {};
   window.gapi.auth = {};

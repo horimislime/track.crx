@@ -30,12 +30,9 @@
     "https://www.googleapis.com/*"
   ],
   "oauth2": {
-    "client_id": "755035748276-12damo7j83om9h2ss5nb25l1hnvgg5f3.apps.googleusercontent.com",
+    "client_id": "755035748276-pnkfb3f2a4nq3ip0ge7l276cbso2sh2t.apps.googleusercontent.com",
     "scopes": [
-      "https://www.googleapis.com/auth/bigquery",
-      "https://www.googleapis.com/auth/bigquery.readonly"
+      "https://www.googleapis.com/auth/bigquery"
       ]
-  },
-
-  "options_page": "sample.html"
+  }
 }
