@@ -1,9 +1,6 @@
 'use strict';
 
-console.log(gapi);
 chrome.runtime.onInstalled.addListener(function (details) {
-    console.log('previousVersion', details.previousVersion);
-
     gapi.auth.authorize({'immediate': false}, function(token) {
 	if(!token) {
 	    alert('Authentication failed! Check the OAuth client ID and scopes.');
