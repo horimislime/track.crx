@@ -26,6 +26,7 @@
   "permissions": [
     "tabs",
     "identity",
+    "storage",
     "https://accounts.google.com/*",
     "https://www.googleapis.com/*"
   ],
