@@ -5,7 +5,6 @@ chrome.runtime.onInstalled.addListener(function (details) {
 	if(!token) {
 	    alert('Authentication failed! Check the OAuth client ID and scopes.');
 	}
-	console.log('auth success. token = ' + token.access_token);
     });
 });
 

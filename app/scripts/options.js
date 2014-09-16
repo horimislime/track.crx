@@ -12,7 +12,6 @@ $(document).ready(function() {
     });
     
     $('#save').click( function() {
-	console.log('val='+$('#project-id').val());
 	chrome.storage.sync.set({
 	    'projectId': $('#project-id').val(),
 	    'datasetId': $('#dataset-id').val(),
